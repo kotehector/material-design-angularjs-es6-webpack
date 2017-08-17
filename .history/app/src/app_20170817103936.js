@@ -1,1 +1,0 @@
-import startApp from 'boot';
