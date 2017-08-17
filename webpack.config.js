@@ -1,10 +1,12 @@
+var path = require('path');
+
 module.exports = {
     entry: {
         app: './app/src/boot.js'
     },
     output: {
-        filename: 'boot.js',
-        path: __dirname + '/dist'
+        filename: 'boot.bundle.js',
+        path: path.resolve(__dirname + '/dist')
     },
     module: {
         rules: [{
