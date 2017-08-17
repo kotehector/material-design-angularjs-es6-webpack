@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        app: './app/src/boot.js'
+        app: './src/boot.js'
     },
     output: {
         filename: 'boot.bundle.js',
