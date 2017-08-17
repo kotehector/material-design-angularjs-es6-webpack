@@ -24,12 +24,33 @@
 
         <!-- Container #3 -->
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-            Sidenav
+            <md-list>
+                <!-- List Item #1 -->
+                <md-list-item>
+                    <md-button>
+                        <md-icon md-svg-src="./app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
+                        Héctor Menduíña
+                    </md-button>
+                </md-list-item>
+                <!-- List Item #2 -->
+                <md-list-item>
+                    <md-button>
+                        <md-icon md-svg-src="./app/assets/svg/avatar-4.svg" class="avatar"></md-icon>
+                        David Paz
+                    </md-button>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
 
         <!-- Container #4 -->
-        <md-content>
-            Content
+        <md-content flex id="content">
+            <!-- User details sample -->
+
+            <md-icon md-svg-src="./app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
+            <h2>Héctor Menduíña</h2>
+            <p>
+                Me encanta la pizza!
+            </p>
         </md-content>
     </div>
 </body>
