@@ -1,10 +1,9 @@
-// Load the custom app ES6 modules
+// Cargamos el Servicios
 
 import UsersDataService from './services/UsersDataService';
 
-// Define the Angular 'users' module
+// Definimos el módulo Angular 'users'
 
 export default angular
     .module("users", ['ngMaterial'])
-
-.service("UsersDataService", UsersDataService);
+    .service("UsersDataService", UsersDataService);

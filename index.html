@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="./node_modules/angular-material/angular-material.css">
-    <link rel="stylesheet" href="./app/assets/app.css" />
+    <link rel="stylesheet" href="./assets/app.css" />
 </head>
 
-<body ng-cloak layout="column">
+<body ng-cloak layout="column" ng-controller="AppController as app">
 
     <!-- Container #1 -->
     <md-toolbar layout="row" class="md-toolbar-tools">
+        <md-button class="menu md-icon-button">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
         <h1>Material Design AngularJs ES6 & Webpack</h1>
     </md-toolbar>
 
@@ -26,17 +29,10 @@
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
             <md-list>
                 <!-- List Item #1 -->
-                <md-list-item>
-                    <md-button>
-                        <md-icon md-svg-src="./app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
-                        Héctor Menduíña
-                    </md-button>
-                </md-list-item>
-                <!-- List Item #2 -->
-                <md-list-item>
-                    <md-button>
-                        <md-icon md-svg-src="./app/assets/svg/avatar-4.svg" class="avatar"></md-icon>
-                        David Paz
+                <md-list-item ng-repeat="user in app.users">
+                    <md-button ng-click="app.selectUser(user);" ng-class="{'selected' : user === app.selected }">
+                        <md-icon md-svg-icon="{{user.avatar}}" class="avatar"></md-icon>
+                        {{ user.name }}
                     </md-button>
                 </md-list-item>
             </md-list>
@@ -46,11 +42,13 @@
         <md-content flex id="content">
             <!-- User details sample -->
 
-            <md-icon md-svg-src="./app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
-            <h2>Héctor Menduíña</h2>
-            <p>
-                Me encanta la pizza!
-            </p>
+            <md-icon md-svg-icon="{{ app.selected.avatar }}" class="avatar"></md-icon>
+            <h2>{{ app.selected.name }}</h2>
+            <p>{{ app.selected.content }}</p>
+
+            <md-button class="md-fab md-fab-bottom-right">
+                <md-icon md-svg-icon="share"></md-icon>
+            </md-button>
         </md-content>
     </div>
 </body>
