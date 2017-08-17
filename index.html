@@ -16,7 +16,7 @@
 
     <!-- Container #1 -->
     <md-toolbar layout="row" class="md-toolbar-tools">
-        <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList();">
+        <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList();" aria-label="Mostrar lista de usuarios">
             <md-icon md-svg-icon="menu"></md-icon>
         </md-button>
         <h1>Material Design AngularJs ES6 & Webpack</h1>
@@ -27,28 +27,16 @@
 
         <!-- Container #3 -->
         <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" ng-click="app.toggleList();" class="md-whiteframe-4dp">
-            <md-list>
-                <!-- List Item #1 -->
-                <md-list-item ng-repeat="user in app.users">
-                    <md-button ng-click="app.selectUser(user);" ng-class="{'selected' : user === app.selected }">
-                        <md-icon md-svg-icon="{{user.avatar}}" class="avatar"></md-icon>
-                        {{ user.name }}
-                    </md-button>
-                </md-list-item>
-            </md-list>
+            <users-list users="app.users" selected="app.selected" on-selected="app.selectUser(user);">
+            </users-list>
         </md-sidenav>
 
         <!-- Container #4 -->
         <md-content flex id="content">
             <!-- User details sample -->
+            <user-details selected="app.selected">
+            </user-details>
 
-            <md-icon md-svg-icon="{{ app.selected.avatar }}" class="avatar"></md-icon>
-            <h2>{{ app.selected.name }}</h2>
-            <p>{{ app.selected.content }}</p>
-
-            <md-button class="md-fab md-fab-bottom-right" ng-click="app.share($event);">
-                <md-icon md-svg-icon="share"></md-icon>
-            </md-button>
         </md-content>
     </div>
 </body>
