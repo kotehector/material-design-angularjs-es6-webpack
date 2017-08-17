@@ -1,0 +1,1 @@
+import { startApp } from 'app/src/boot';
